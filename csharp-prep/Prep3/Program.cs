@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args) // Functions Methods Behaviours
     {
+        Console.WriteLine("Hello Prep3 World!");
+
         Random rnd = new Random();
         int number = rnd.Next(1, 100);
         int guess;
