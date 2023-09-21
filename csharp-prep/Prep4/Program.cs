@@ -25,7 +25,7 @@ class Program
 
         foreach (double n in numbers)
         {
-            sum += n; // sum = sum + n
+            sum += n; // sum = sum + n  
             if (n > largest)
                 largest = n;
         }
