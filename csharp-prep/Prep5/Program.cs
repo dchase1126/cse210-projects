@@ -14,7 +14,7 @@ class Program
 
         DisplayResult(userName, squaredNumber);
     }
-
+    
     //Display Welcome Message
     static void DisplayWelcomeMessage()
     {
