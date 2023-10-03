@@ -1,6 +1,7 @@
 public class DailyQuotes
 {
-    public List<string> _quoteList = new List<string>
+    private Random rand = new();
+    private List<string> _quoteList = new List<string>
     {
        "All our dreams can come true, if we have the courage to pursue them. —Walt Disney",
        "The secret of getting ahead is getting started. —Mark Twain",
@@ -18,7 +19,7 @@ public class DailyQuotes
 
     public string GetRandomQuote()
     {
-        return _quoteList[0];
-        // generates a random quote
+        int index = rand.Next(_quoteList.Count);
+        return _quoteList[index];
     }
 }

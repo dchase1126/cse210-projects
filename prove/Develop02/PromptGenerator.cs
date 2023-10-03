@@ -2,7 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 public class PromptGenerator
 {
-    public List<string> _questionList = new List<string>()
+    private Random rand = new();
+    private List<string> _questionList = new List<string>()
     {
         "What are you grateful for today?",
         "Write 5 affirmations for when you are feeling low.",
@@ -19,11 +20,16 @@ public class PromptGenerator
         "Share a memory of your childhood.",
         "What did you do today?",
         "How did you serve others this week?",
+        "Who was the most interesting person I interacted with today?",
+        "What was the best part of my day?",
+        "How did I see the hand of the Lord in my life today?",
+        "What was the strongest emotion I felt today?",
+        "If I had one thing I could do over today, what would it be?",
     };
 
     public string GetRandomQuestion()
     {
-        return _questionList[0];
-        // generates a random question
+        int index = rand.Next(_questionList.Count);
+        return _questionList[index];
     }
 }
