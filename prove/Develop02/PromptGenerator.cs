@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 public class PromptGenerator
 {
-    private Random rand = new();
+    private Random rand = new Random();
     private List<string> _questionList = new List<string>()
     {
         "What are you grateful for today?",

@@ -1,7 +1,7 @@
 public class Entry
 {
-    private PromptGenerator promptGenerator = new();
-    private DailyQuotes dailyQuotes = new();
+    private PromptGenerator promptGenerator = new PromptGenerator();
+    private DailyQuotes dailyQuotes = new DailyQuotes();
     private string date;
     private string quote;
     private string prompt;
@@ -24,4 +24,6 @@ public class Entry
     {
         response = Console.ReadLine();
     }
+
+
 }

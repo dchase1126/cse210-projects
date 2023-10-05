@@ -8,11 +8,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        Journal journal = new();
-        string choice = "";
-        string message = "\tHello!\nWelcome to your Journal. Please select fom the menu.\n\n\tJournal Menu";
+        Journal journal = new Journal();
+        int menuChoice = 0;
+        string message = "Hello!\nWelcome to your Journal.\nPlease select fom the menu.\n\n\tJournal Menu";
 
-        while (choice != "5")
+        while (menuChoice != 5)
         {
             // Display the menu options
             Console.WriteLine(message);
@@ -23,29 +23,37 @@ class Program
             Console.WriteLine("5. Quit");
             Console.WriteLine("\nWhat would you like to do?");
 
-            choice = Console.ReadLine();
 
             // get the users choice
-            int menuChoice = 0;
+            string choice = Console.ReadLine();
+            menuChoice = int.Parse(choice);
+
+
             switch (menuChoice)
             {
                 case 1:
+                    Console.WriteLine(">");
                     journal.AddNewJournalEntry();
                     break;
                 case 2:
                     journal.DisplayJournalEntries();
                     break;
                 case 3:
-                    journal.LoadJournalFromFile();
+                    Console.WriteLine("What is the file you want to load? ");
+                    string fileName = Console.ReadLine();
+                    journal.LoadJournalFromFile(fileName);
                     break;
                 case 4:
-                    journal.SaveJournalToFile();
+                    Console.WriteLine("Save Entry");
+                    fileName = Console.ReadLine();
+                    journal.SaveJournalToFile(fileName);
                     break;
                 case 5:
                     Environment.Exit(0);
+                    Console.WriteLine("Have a good day!");
                     break;
                 default:
-                    Console.WriteLine("Please choose an option 1-5. Have a good day!");
+                    Console.WriteLine("Please choose an option 1-5.");
                     break;
 
             }

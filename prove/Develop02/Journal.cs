@@ -20,32 +20,37 @@ public class Journal
 
 
     //????????????????
-    public void SaveJournalToFile()
+    //SaveToFile(entries);  ???Where do I put this? jouDo I need this ?
+    public void SaveJournalToFile(string fileName)
     {
-        string fileName = "myFile.txt";
+        Console.WriteLine("Saving to file...");
 
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            // You can add text to the file with the WriteLine method
-            outputFile.WriteLine("This will be the first line in the file.");
+            foreach (Entry entry in entries)
+            {
+                outputFile.WriteLine(entry);
+                // You can add text to the file with the WriteLine method
+                //outputFile.WriteLine("This will be the first line in the file.");
+            }
+
 
             // You can use the $ and include variables just like with Console.WriteLine
-            string color = "Blue";
-            outputFile.WriteLine($"My favorite color is {color}");
+            //string color = "Blue";
+            //outputFile.WriteLine($"My favorite color is {color}");
         }
     }
 
-    public void LoadJournalFromFile()
+    public void LoadJournalFromFile(string fileName)
     {
-        string filename = "myFile.txt";
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] lines = System.IO.File.ReadAllLines(fileName);
 
         foreach (string line in lines)
         {
             string[] parts = line.Split(",");
 
             string firstName = parts[0];
-            string lastName = parts[1];
+            string lastName = parts[0];
         }
     }
 
