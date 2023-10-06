@@ -1,6 +1,6 @@
 public class DailyQuotes
 {
-    private Random rand = new();
+    private Random rand = new Random();
     private List<string> _quoteList = new List<string>
     {
        "All our dreams can come true, if we have the courage to pursue them. —Walt Disney",

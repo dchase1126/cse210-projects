@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 public class PromptGenerator
 {
     private Random rand = new Random();
@@ -11,7 +9,7 @@ public class PromptGenerator
         "What are your plans for this weekend?",
         "How have you grown this week?",
         "Name the three biggest priorities in your life right now.",
-        "Do you have a fear that is stopping you from achieving your goals?",
+        "Do you have a fear that is stopping you from achieving your goals? What is it? Write a few ideas to over come it.  ?",
         "Name three challenges…. and three ways to overcome them.",
         "Name three bad habits you would like to change.",
         "Add some more items to your bucket list…if you do not have a bucket list, start one.",

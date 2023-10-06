@@ -1,58 +1,65 @@
-
 public class Journal
 {
-
-    private List<Entry> entries = new();
+    private List<Entry> _entries = new();
     public void AddNewJournalEntry()
     {
-        Entry entry = new Entry();
-        entry.Write();
-        entries.Add(entry);
+        Entry _entry = new Entry();
+        _entry.Write();
+        _entries.Add(_entry);
     }
-
     public void DisplayJournalEntries()
     {
-        foreach (Entry entry in entries)
+        foreach (Entry _entry in _entries)
         {
-            entry.DisplayJournalEntry();
+            _entry.DisplayJournalEntry();
         }
     }
-
-
-    //????????????????
-    //SaveToFile(entries);  ???Where do I put this? jouDo I need this ?
-    public void SaveJournalToFile(string fileName)
+    public void SaveJournalToFile(string _fileName)
     {
         Console.WriteLine("Saving to file...");
 
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        try
         {
-            foreach (Entry entry in entries)
+            using (StreamWriter outputFile = new StreamWriter(_fileName, true))
             {
-                outputFile.WriteLine(entry);
-                // You can add text to the file with the WriteLine method
-                //outputFile.WriteLine("This will be the first line in the file.");
+                foreach (Entry _entry in _entries)
+                {
+                    outputFile.WriteLine($"{_entry.Date}|{_entry.Quote}|{_entry.Prompt}|{_entry.Response}");
+                }
             }
 
-
-            // You can use the $ and include variables just like with Console.WriteLine
-            //string color = "Blue";
-            //outputFile.WriteLine($"My favorite color is {color}");
+            _entries.Clear();
         }
-    }
-
-    public void LoadJournalFromFile(string fileName)
-    {
-        string[] lines = System.IO.File.ReadAllLines(fileName);
-
-        foreach (string line in lines)
+        catch
         {
-            string[] parts = line.Split(",");
-
-            string firstName = parts[0];
-            string lastName = parts[0];
+            Console.WriteLine("Error: Unable to save to file.");
         }
     }
 
+    public void LoadJournalFromFile(string _fileName)
+    {
+        Console.Write("Save all entries before loading. Press 'Enter' to continue or '0' to abort.\n> ");
+        string userInput = Console.ReadLine();
+        if (userInput == "0")
+        {
+            return;
+        }
+        else
+        {
+            _entries.Clear();
+            string[] lines = File.ReadAllLines(_fileName);
 
+            foreach (string _line in lines)
+            {
+                string[] parts = _line.Split("|");
+                string _date = parts[0];
+                string _quote = parts[1];
+                string _prompt = parts[2];
+                string _response = parts[3];
+
+                Entry entry = new Entry(_date, _quote, _prompt, _response);
+                _entries.Add(entry);
+            }
+        }
+    }
 }
