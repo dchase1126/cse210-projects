@@ -1,7 +1,7 @@
 public class Entry
 {
-    private PromptGenerator promptGenerator = new PromptGenerator();
-    private DailyQuotes dailyQuotes = new DailyQuotes();
+    private PromptGenerator _promptGenerator = new PromptGenerator();
+    private DailyQuotes _dailyQuotes = new DailyQuotes();
     private string _date;
     private string _quote;
     private string _prompt;
@@ -27,8 +27,8 @@ public class Entry
     public void Write()
     {
         _date = DateTime.Now.ToShortDateString();
-        _quote = dailyQuotes.GetRandomQuote();
-        _prompt = promptGenerator.GetRandomQuestion();
+        _quote = _dailyQuotes.GetRandomQuote();
+        _prompt = _promptGenerator.GetRandomQuestion();
 
         Console.WriteLine(_quote);
         Console.WriteLine(_prompt);

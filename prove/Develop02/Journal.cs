@@ -35,7 +35,7 @@ public class Journal
             Console.WriteLine("Error: Unable to save to file.");
         }
     }
-    
+
     public void SaveJournalToFile(string _fileName)
     {
         if (File.Exists(_fileName))
@@ -46,8 +46,8 @@ public class Journal
         {
             Console.WriteLine("File does not exist");
             Console.Write("Do you want to create a new file (Y/N)? ");
-            string answer = Console.ReadLine();
-            if(answer.ToUpper() == "Y")
+            string _answer = Console.ReadLine();
+            if (_answer.ToUpper() == "Y")
                 ExecuteSave(_fileName);
         }
     }

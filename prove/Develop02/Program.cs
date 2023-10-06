@@ -31,13 +31,13 @@ class Program
                     break;
                 case 3:
                     Console.WriteLine("What is the file you want to load? (myJournal.txt) ");
-                    string fileName = Console.ReadLine();
-                    journal.LoadJournalFromFile(fileName);
+                    string _fileName = Console.ReadLine();
+                    journal.LoadJournalFromFile(_fileName);
                     break;
                 case 4:
                     Console.Write("Enter File name (myJournal.txt) ");
-                    fileName = Console.ReadLine();
-                    journal.SaveJournalToFile(fileName);
+                    _fileName = Console.ReadLine();
+                    journal.SaveJournalToFile(_fileName);
                     break;
                 case 5:
                     Environment.Exit(0);
