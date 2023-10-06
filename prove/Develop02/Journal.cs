@@ -14,10 +14,10 @@ public class Journal
             _entry.DisplayJournalEntry();
         }
     }
-    public void SaveJournalToFile(string _fileName)
+
+    private void ExecuteSave(string _fileName)
     {
         Console.WriteLine("Saving to file...");
-
         try
         {
             using (StreamWriter outputFile = new StreamWriter(_fileName, true))
@@ -33,6 +33,22 @@ public class Journal
         catch
         {
             Console.WriteLine("Error: Unable to save to file.");
+        }
+    }
+    
+    public void SaveJournalToFile(string _fileName)
+    {
+        if (File.Exists(_fileName))
+        {
+            ExecuteSave(_fileName);
+        }
+        else
+        {
+            Console.WriteLine("File does not exist");
+            Console.Write("Do you want to create a new file (Y/N)? ");
+            string answer = Console.ReadLine();
+            if(answer.ToUpper() == "Y")
+                ExecuteSave(_fileName);
         }
     }
 

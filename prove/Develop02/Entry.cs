@@ -8,7 +8,6 @@ public class Entry
     private string _response;
 
     // PROPTERTIES
-    // (Access Type) (Return Type) (Property Name) {}
     public string Date { get { return _date; } }
     public string Quote { get { return _quote; } }
     public string Prompt { get { return _prompt; } }
@@ -42,21 +41,5 @@ public class Entry
         Console.WriteLine($"Today's Date: {_date}\nDaily Quote: {_quote}\nToday's Journal Prompt: {_prompt}\nWrite Your Response: {_response}");
 
     }
-
-    // Using getters and setters allow us to set up more robust checks or add additional logic when altering or returning field data.
-    public string GetResponse()
-    {
-        return _response; // Only returns a copy of the field.
-    }
-
-    public void SetResponse(string _response)
-    {
-        this._response = _response;
-    }
-
-    // public ref string GetResponseRef() // Returns the root variable
-    // {
-    //     return ref response;
-    // }
 
 }
