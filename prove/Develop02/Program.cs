@@ -53,3 +53,5 @@ class Program
 }
 
 // Exceeding requirements by adding a "Quote of the Day" in the program per "Save other information in the journal entry".
+// Exceeding requirements by adding in some encapsulation and constructor to my Entry.cs file.
+// I also added some "user error" catches in my Journal.cs file during the Loading and Saving functions.    
