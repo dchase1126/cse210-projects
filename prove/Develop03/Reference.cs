@@ -33,5 +33,4 @@ class Reference  // Keeps track of the book, chapter, and verse information.
             Console.WriteLine($"{_book} {_chapter} {_startverse} {_endverse}");
         }
     }
-
 }
