@@ -1,7 +1,7 @@
 
-class Assignments  // base class
+class Assignments  // base or super class
 {
-    private string _studentName;    //protected is an option
+    private string _studentName;    //protected is an option over private
     private string _topic;
 
     public Assignments(string studentName, string topic)

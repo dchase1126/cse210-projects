@@ -1,5 +1,5 @@
 
-class MathAssignment : Assignments
+class MathAssignment : Assignments  //derived or sub class
 {
     private string _textBookSection;
     private string _problems;

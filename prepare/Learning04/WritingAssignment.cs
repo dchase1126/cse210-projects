@@ -1,4 +1,4 @@
-class WritingAssignment : Assignments
+class WritingAssignment : Assignments //derived or sub class
 {
     private string _title;
 
