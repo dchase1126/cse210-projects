@@ -2,47 +2,50 @@ using System;
 
 class Program
 {
-
-
     static void Main(string[] args)
     {
-        Activity activity = new Activity();
+        int _choice = 0;
 
-        int _menuChoice = 0;
+        while (_choice != 5)
         {
             // Display the menu options
             Console.WriteLine("\nHello, Welcome to your Mindfulness Activtities!");
             Console.WriteLine("What activity would you like to do?\n");
-            Console.WriteLine("1. Breathing Activity");
-            Console.WriteLine("2. ReflectionActivity");
-            Console.WriteLine("3. Listing Activity");
+            Console.WriteLine("1. Reflection Activity");
+            Console.WriteLine("2. Listing Activity");
+            Console.WriteLine("3. Breathing Activity");
             Console.WriteLine("4. Run & Walk Activity");
             Console.WriteLine("5. Quit");
 
             // get the users choice
-            string _choice = Console.ReadLine();
-            int _menuchoice = int.Parse(Console.ReadLine());
 
-            switch (_menuChoice)
+            _choice = int.Parse(Console.ReadLine());
+
+
+            switch (_choice)
             {
                 case 1:
-                    //activity.BreathingActivity();
+                    ReflectionActivity reflecting = new();
+                    reflecting.BeginActivity();
                     break;
                 case 2:
-                    //activity.ReflectionActivity();
+                    ListingActivity listing = new();
+                    listing.BeginActivity();
                     break;
                 case 3:
-                    //activity.ListingActivity();
+                    BreathingActivity breathing = new();
+                    breathing.BeginActivity();
                     break;
                 case 4:
-                    // activity.RunWalkActivity();
+                    RunWalkActivity running = new();
+                    running.BeginActivity();
                     break;
                 case 5:
+                    Console.WriteLine("Bye! Have a great day!");
                     Environment.Exit(0);
-                    Console.WriteLine("Great Job! Have a great day!");
                     break;
                 default:
-                    Console.WriteLine("Want to do another Activity? Please choose an option 1-5.");
+                    Console.WriteLine("If you want to do an activity, please choose an option 1-5.");
                     break;
             }
         }

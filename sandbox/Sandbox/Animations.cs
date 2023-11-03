@@ -2,7 +2,7 @@ using System;
 
 class Animations
 {
-    static void Main(string[] args)
+    static void Test()
     {
         Console.WriteLine("Hello Sandbox World!");
 

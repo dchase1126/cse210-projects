@@ -1,104 +1,70 @@
 class Activity // base or super class
 {
-    private string _name;
-    private string _description;
-    private int _durationPauseTime = 0;
-    private int _duration = 0;
+    protected string _name;
+    protected string _description;
+    protected int _duration;
+    private string[] _animation = new[] { "|", "/", "-", "\\" };
 
-
-    /*public string _activity;
-    public int _userchoice;
-    public int _time;*/
 
     //constructor
-    public Activity()
+    public Activity() { }
+
+    public void StartMessage()
     {
-        _name = "name";
-        _description = "The Mindfulness Program";
-        _durationPauseTime = 0;
-        _duration = 0;
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {_name} Activity!");
+        Console.WriteLine($"{_description}");
+        Console.WriteLine("How long would you like to do the activity? ");
+        _duration = int.Parse(Console.ReadLine());
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        Counter(5);
+        Console.Clear();
     }
-    public Activity(string name, string description, int durationPauseTime, int duration)
+    public void EndMessage()
     {
-        _name = name;
-        _description = description;
-        _durationPauseTime = durationPauseTime;
-        _duration = duration;
+        Console.Clear();
+        Console.WriteLine($"You have completed {_duration} seconds of the {_name} activity.");
+        Spinner(5);
+        Console.Clear();
     }
 
-    public string GetName() //method
+    public void Counter(int duration)
     {
-        return $"{_name} ";
+
+        for (int i = duration; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            if (i <= 9)
+            {
+                Console.Write("\b \b");
+                Console.CursorVisible = false;
+            }
+            else if (i >= 10 && i < 100)
+            {
+                Console.Write("\b\b  \b\b");
+                Console.CursorVisible = false;
+            }
+        }
+
+        Console.CursorVisible = true;
     }
 
-    public string GetDescription() //method
+    public void Spinner(int duration)
     {
-        return $"{_description} ";
-    }
 
-    public string GetDurationPauseTime() //method
-    {
-        return $"{_durationPauseTime} ";
+        for (int i = duration; i > 0; i--)
+        {
+            foreach (string symbol in _animation)
+            {
+                Console.Write(symbol);
+                Thread.Sleep(250);
+                Console.Write("\b \b");
+                Console.CursorVisible = false;
+            }
+        }
+        
+        Console.CursorVisible = true;
     }
-
-    public string GetDuration() //method
-    {
-        return $"{_duration} ";
-    }
-
 }
-/*
-*****Working with Time****
-The C# language has a powerful Date and Time library. You might find it useful to get the current time, 
-add a number of seconds to it, and then check if the current time is less than the new time.
-
-This can be accomplished with the DateTime class. An object with the current time can be obtained withe DateTime.Now . 
-Then, it has methods such as .AddSeconds(numberOfSeconds), and it works with the less than < operator as you would expect.
-
-The following code snippet shows an example:
-
-}DateTime startTime = DateTime.Now;
-DateTime futureTime = startTime.AddSeconds(5);
-
-Thread.Sleep(3000);
-
-DateTime currentTime = DateTime.Now;
-if (currentTime < futureTime)
-{
-    Console.WriteLine("We have not arrived at our future time yet...")
-*/
-
-
-/*
-****Display Animations***
-To display an animation, such as the spinner or the countdown timer, you need to have the computer pause for a period of time, and then replace the previous character with a new one. This can be done by writing the backspace character "\b" and which works like pushing the left arrow. Then, you can write a new character over the top of it.
-
-Because the backspace character works like pressing the left arrow, instead of a backspace, it does not delete the character on the screen. With this in mind, it is common to write "\b \b" which moves left, writes a blank space over the previous character and then moves left again so it is ready for your new character.
-
-The following example shows how to overwrite a character after half a second:
-
-
-Console.Write("+");
-
-Thread.Sleep(500);
-
-Console.Write("\b \b"); // Erase the + character
-Console.Write("-"); // Replace it with the - character
-
-If this code were in a loop it would continue displaying and replacing characters.
-*/
-
-
-/*
-*****Pausing****
-In the demo video, you can see the program pausing for a certain period of time. This can be done with the Thread.Sleep() method which takes an integer as the number of milliseconds for the current "thread of execution" to sleep or pause.
-
-The following example shows how to make the computer to wait for 1 second (1000 milliseconds):
-
-
-Console.WriteLine("Going to sleep for a second...");
-
-Thread.Sleep(1000);
-
-Console.WriteLine("I'm back!!");
-*/

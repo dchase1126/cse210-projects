@@ -2,7 +2,7 @@ using System.Transactions;
 
 class ReflectionActivity : Activity  //derived or sub class
 {
-    private Random rand = new Random();
+    private Random random = new Random();
     private List<string> _messages = new List<string>()
     {
         "Think of a time when you stood up for someone else.",
@@ -24,68 +24,45 @@ class ReflectionActivity : Activity  //derived or sub class
         "How can you keep this experience in mind in the future?",
     };
 
+
+    private List<int> _usedIndexes = new List<int>();
+
     //constructors
-    public ReflectionActivity(string name, string description, int durationPauseTime, int duration) : base(name, description, durationPauseTime, duration)
+    public ReflectionActivity()
     {
-
-    }
-
-    public ReflectionActivity(string messages, string questions, string name, string description, int durationPauseTime, int duration) : base(name, description, durationPauseTime, duration)
-    {
-
+        _name = "Reflection";
+        _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
     }
 
     public string GetRandomMessage()
     {
-        int index = rand.Next(_messages.Count);
+        int index = random.Next(_messages.Count);
         return _messages[index];
-    }
-
-    public void DisplayPromptInfo()
-    {
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(5);
-        while (startTime < futureTime)
-        {
-            {
-                Console.WriteLine(GetRandomMessage());
-                Thread.Sleep(3000);
-            }
-        }
     }
 
     public string GetRandomQuestion()
     {
-        int index = rand.Next(_questions.Count);
+        int index = random.Next(_questions.Count);
         return _questions[index];
     }
 
-    public void DisplayQuestionInfo()
+    public void BeginActivity()
     {
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(5);
-        while (startTime < futureTime)
+        StartMessage();
+        Console.WriteLine("Consider the following statement: ");
+        Console.WriteLine(GetRandomMessage());
+        Spinner(5);
+
+        Console.WriteLine("When you have something in mind press 'Enter' to continue");
+        string choice = Console.ReadLine();
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+        while (DateTime.Now < endTime)
         {
-            {
-                Console.WriteLine(GetRandomQuestion());
-                Thread.Sleep(3000);
-            }
+            Console.WriteLine(GetRandomQuestion());
+            Spinner(5);
         }
+
+        EndMessage();
     }
-
-    /*public void StartReflection()
-    {
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(5);
-        while (startTime < futureTime)
-        {
-            {
-                Console.WriteLine(StartReflection());
-                Thread.Sleep(3000);
-            }
-        }
-    }*/
-
-
 
 }

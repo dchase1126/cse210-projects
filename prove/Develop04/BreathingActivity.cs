@@ -1,22 +1,24 @@
 class BreathingActivity : Activity  //derived or sub class
 {
-    private int _breathIn;
-    private int _breathOut;
-
     //constructors
-    public BreathingActivity(string name, string description, int durationPauseTime, int duration) : base(name, description, durationPauseTime, duration)
+    public BreathingActivity()
     {
-
+        _name = "Breathing ";
+        _description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
     }
 
-    public BreathingActivity(int breatIn, int breathOut, string name, string description, int durationPauseTime, int duration) : base(name, description, durationPauseTime, duration)
+    public void BeginActivity()
     {
+        StartMessage();
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
-    }
-
-    public BreathingActivity(int breathIn, int breathOut)
-    {
-        Console.WriteLine("Breathe in...");
-        Console.WriteLine("Breathe out...");
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("\nBreathe in...");
+            Counter(6);
+            Console.Write("\nBreathe out...");
+            Counter(4);
+        }
+        EndMessage();
     }
 }
