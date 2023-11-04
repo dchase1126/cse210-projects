@@ -1,4 +1,4 @@
-class ListingActivity : Activity  //derived or sub class
+class ListingActivity : Activity  //Inheritance - This is the child, derived or Sub class : parent, base  or Super class 
 {
 
     private Random random = new Random();
@@ -41,7 +41,7 @@ class ListingActivity : Activity  //derived or sub class
 
             EndMessage();
             {
-                Console.WriteLine($"You entered {counter} items! \n You have completed the activity!");
+                Console.WriteLine($"You entered {counter} items!\nYou have completed the activity!");
             }
         }
     }

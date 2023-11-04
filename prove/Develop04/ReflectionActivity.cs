@@ -1,6 +1,6 @@
 using System.Transactions;
 
-class ReflectionActivity : Activity  //derived or sub class
+class ReflectionActivity : Activity  //Inheritance - This is the child, derived or Sub class : parent, base  or Super class 
 {
     private Random random = new Random();
     private List<string> _messages = new List<string>()
@@ -15,7 +15,7 @@ class ReflectionActivity : Activity  //derived or sub class
     {
         "Why was this experience meaningful to you?",
         "Have you ever done anything like this before?",
-        "How did you get started?.",
+        "How did you get started?",
         "How did you feel when it was complete?",
         "What made this time different than other times when you were not as successful?",
         "What is your favorite thing about this experience?",
@@ -23,9 +23,6 @@ class ReflectionActivity : Activity  //derived or sub class
         "What did you learn about yourself through this experience?",
         "How can you keep this experience in mind in the future?",
     };
-
-
-    private List<int> _usedIndexes = new List<int>();
 
     //constructors
     public ReflectionActivity()

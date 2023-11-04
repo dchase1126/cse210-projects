@@ -18,7 +18,9 @@ class BreathingActivity : Activity  //derived or sub class
             Counter(6);
             Console.Write("\nBreathe out...");
             Counter(4);
+
         }
         EndMessage();
+       
     }
 }

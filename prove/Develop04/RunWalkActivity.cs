@@ -1,11 +1,11 @@
-class RunWalkActivity : Activity  //derived or sub class
+class RunWalkActivity : Activity  //Inheritance - This is the child, derived or Sub class : parent, base  or Super class 
 {
 
     //constructors
     public RunWalkActivity()
     {
         _name = "Run and Walk ";
-        _description = "This activity will help you move your body by doing 30 second intervals of running and walking in place. Get ready. Let's get moving!.";
+        _description = "This activity will help you move your body by doing 10 second intervals of running and walking in place. Get ready. Let's get moving!.";
     }
 
     public void BeginActivity()

@@ -1,4 +1,4 @@
-class Activity // base or super class
+class Activity //Inheritance -This is the parent, base  or Super class 
 {
     protected string _name;
     protected string _description;
@@ -6,7 +6,7 @@ class Activity // base or super class
     private string[] _animation = new[] { "|", "/", "-", "\\" };
 
 
-    //constructor
+    //constructors
     public Activity() { }
 
     public void StartMessage()
@@ -14,7 +14,7 @@ class Activity // base or super class
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name} Activity!");
         Console.WriteLine($"{_description}");
-        Console.WriteLine("How long would you like to do the activity? ");
+        Console.WriteLine("How many seconds would you like to do the activity? ");
         _duration = int.Parse(Console.ReadLine());
         Console.Clear();
         Console.WriteLine("Get ready...");
@@ -24,7 +24,7 @@ class Activity // base or super class
     public void EndMessage()
     {
         Console.Clear();
-        Console.WriteLine($"You have completed {_duration} seconds of the {_name} activity.");
+        Console.WriteLine($"Great Job!\nYou have completed {_duration} seconds of the {_name} activity.");
         Spinner(5);
         Console.Clear();
     }
@@ -64,7 +64,7 @@ class Activity // base or super class
                 Console.CursorVisible = false;
             }
         }
-        
+
         Console.CursorVisible = true;
     }
 }
