@@ -1,6 +1,6 @@
 using System.Transactions;
-
-class ReflectionActivity : Activity  //Inheritance - This is the child, derived or Sub class : parent, base  or Super class 
+//Inheritance - class ReflectionActivity is the child, derived or Sub class : Activity is the parent, base  or Super class 
+class ReflectionActivity : Activity  
 {
     private Random random = new Random();
     private List<string> _messages = new List<string>()
