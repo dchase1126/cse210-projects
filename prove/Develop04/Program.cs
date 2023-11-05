@@ -51,3 +51,8 @@ class Program
         }
     }
 }
+
+// Exceeding requirements by adding a "RunWalk.cs" file  per "Adding another kind of activity" 
+// Exceeding requirements by adding a "default" in the switch and case in the menu.
+// Exceeding requirement  by hiding the cursor for the spinner and countdown.
+// I also cleared the console so it would look cleaner while showing the count down and activity.  
