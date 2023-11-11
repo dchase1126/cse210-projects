@@ -25,6 +25,5 @@ class Program
             Console.WriteLine($"The area is {area} and the color is {color}.");
         }
 
-
     }
 }
