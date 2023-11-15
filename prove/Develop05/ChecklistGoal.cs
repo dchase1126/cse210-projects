@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 public class ChecklistGoal : Goal //Inheritance - derived or sub class
 {
     private int _target;
@@ -12,14 +14,19 @@ public class ChecklistGoal : Goal //Inheritance - derived or sub class
         _bonus = bonus;
     }
 
-
-   /* public override string DisplayGoal()
+    public override int RecordEvent()  //Polymorphism
     {
+        return 0;
+    }
 
-        Console.WriteLine($"{_name} - {_description} | Points: {_points}");
-    }*/
     public override string GetSaveString()  //Polymorphism
     {
         return "${}";
     }
+
+    public override string DisplayGoal()
+    {
+        return $"{base.DisplayGoal()}\tBonus: {_bonus}\n\tProgress: [{_current}/{_target}]";
+    }
+
 }

@@ -6,8 +6,9 @@ public abstract class Goal  //base super class
     protected int _points;
     protected bool _isComplete;
 
+
     // constructor
-    public Goal(string name, string description, int points, bool isComplete )
+    public Goal(string name, string description, int points, bool isComplete)
     {
         _name = name;
         _description = description;
@@ -16,14 +17,23 @@ public abstract class Goal  //base super class
     }
 
 
+    public virtual string DisplayGoal()
+    {
+        return $"[{GetIsCompleteChar()}] {_name} - {_description}\n\tPoints: {_points}\n";
+    }
+    private char GetIsCompleteChar()
+    {
+        if(_isComplete)
+            return 'X';
+        else
+            return ' ';
+    }
+    public bool GetIsComplete()
+    {
+        return _isComplete;
+    }
+    
+    public abstract int RecordEvent();
     public abstract string GetSaveString();
-{
-    return 0;
-}
-
-    //public virtual string DisplayGoal();
-   /* {
-    Console.WriteLine($"{_name} - {_description} | Points: {_points}");
-    }*/
 
 }

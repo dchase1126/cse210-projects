@@ -6,24 +6,21 @@ using System;
     {
         
         int _choice = 0;
-        GoalsManager _goalsmanager;
+        GoalsManager _goalsmanager = new GoalsManager();
 
         string _message = "Hello!\nWelcome to the Eternal Goals Quest.\nPlease select fom the menu.\n\n\tEternal Goals Quest";
 
         
-        while (_choice != 5)
+        while (_choice != 6)
         {
             // Display the menu options
             Console.WriteLine(_message);
-          
-            Console.WriteLine("1. Create a Simple Goal");
-            Console.WriteLine("2. Create a Eternal Goal");
-            Console.WriteLine("3. Create a Checklist Goal");
-            Console.WriteLine("4. Display all Goals");
-            Console.WriteLine("5. Load all Goals");
-            Console.WriteLine("6. Save all Goals");
-            Console.WriteLine("7. Record Event");
-            Console.WriteLine("8. Quit");
+            Console.WriteLine("1. Create a Goal"); 
+            Console.WriteLine("2. Display all Goals");
+            Console.WriteLine("3. Load all Goals");
+            Console.WriteLine("4. Save all Goals");
+            Console.WriteLine("5. Record Event");
+            Console.WriteLine("6. Quit");
             Console.WriteLine("\nWhat would you like to do?\n");
 
             // get the users choice
@@ -32,55 +29,39 @@ using System;
 
             switch (_choice)
             {
-                case 1:  // Create a Simple Goal
+                case 1:  // Create a Goal
+
+                    _goalsmanager.AddGoal();
+                    break;
+
+                case 2:  // Display all Goals
                     
-                    Goal simple = new SimpleGoals();
-                    _goalsmanager.AddNewGoal(simple);
-
+                  _goalsmanager.DisplayGoal();
                     break;
 
-                case 2:  // Create a Eternal Goal
-                     Goal eternal = new EternalGoal();
-                    _goalsmanager.AddNewGoal(eternal);
-
-                    break;
-
-                case 3: // Create a Checklist Goal
-                    Goal checklist = new ChecklistGoal();
-                    _goalsmanager.AddNewGoal(checklist);
-
-                    break;
-
-                case 4:  // Display all Goals
-                
-                    _goalsmanager.DisplayGoal();
-
-                    break;
-
-                case 5:  // Load all Goals
+                case 3:  // Load all Goals
                     Console.WriteLine("What is the file you want to load? (myGoals.txt) ");
                     string _goalFile = Console.ReadLine();
-                    _goalsmanager.LoadGoalFromFile(_goalFile);
+                    _goalsmanager.Load(_goalFile);
                     break;
 
-                case 6:  // Save all Goals
+                case 4:  // Save all Goals
                     Console.Write("Enter File name (myGoals.txt) ");
                     _goalFile = Console.ReadLine();
-                    _goalsmanager.SaveGoalToFile(_goalFile);
+                    _goalsmanager.Save(_goalFile);
                     break;
 
-                case 7:  // Record Event
+                case 5:  // Record Event
 
                     _goalsmanager.RecordEvent();
-
                     break;
 
-                case 8:  // Quit
+                case 6:  // Quit
                     Environment.Exit(0);
                     Console.WriteLine("Have a good day!");
                     break;
                 default:
-                    Console.WriteLine("Please choose an option 1-8.");
+                    Console.WriteLine("In valid input. Please choose an option 1-6.");
                     break;
 
             }
@@ -90,5 +71,7 @@ using System;
 
 }   
                 
-                   
+ // Exceeding Requirments by.....  
+ // Add additional kinds of goals, such as the ability to make progress towards a large goal 
+ // (such as getting value for working towards running a marathon), or "negative goals" where they lose points for bad habits.                
                     
