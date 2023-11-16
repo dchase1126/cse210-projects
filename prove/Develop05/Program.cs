@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
  class Program
 {
@@ -36,7 +37,7 @@ using System;
 
                 case 2:  // Display all Goals
                     
-                  _goalsmanager.DisplayGoal();
+                  _goalsmanager.DisplayGoals();
                     break;
 
                 case 3:  // Load all Goals

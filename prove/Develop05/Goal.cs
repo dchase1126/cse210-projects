@@ -1,4 +1,5 @@
-
+using System;
+using System.IO;
 public abstract class Goal  //base super class
 {
     protected string _name;
@@ -7,8 +8,20 @@ public abstract class Goal  //base super class
     protected bool _isComplete;
 
 
+    public bool IsComplete { get{return _isComplete;}}
+    public string Name {get{return _name;}}
+
+
     // constructor
-    public Goal(string name, string description, int points, bool isComplete)
+    public Goal(string name, string description, int points)
+    {
+        _name = name;
+        _description = description;
+        _points = points;
+        _isComplete = false;
+    }
+
+     public Goal(string name, string description, int points, bool isComplete)
     {
         _name = name;
         _description = description;
@@ -23,17 +36,14 @@ public abstract class Goal  //base super class
     }
     private char GetIsCompleteChar()
     {
-        if(_isComplete)
+        if (_isComplete)
             return 'X';
         else
             return ' ';
     }
-    public bool GetIsComplete()
-    {
-        return _isComplete;
-    }
-    
+
     public abstract int RecordEvent();
+    
     public abstract string GetSaveString();
 
 }

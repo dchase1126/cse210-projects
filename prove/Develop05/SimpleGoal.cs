@@ -2,19 +2,27 @@ public class SimpleGoal : Goal //Inheritance - derived or sub class
 {
 
     // constructor
-    public SimpleGoal(string description, string name, int points, bool isComplete) : base(description, name, points, isComplete)
+    public SimpleGoal(string name, string description, int points) : base(name, description, points)
+    {
+
+    }
+
+    public SimpleGoal(string name, string description, int points, bool iscomplete) : base(name, description, points, iscomplete)
     {
 
     }
 
     public override int RecordEvent()  //Polymorphism
     {
-        return 0;
+        _isComplete = true;
+        Console.WriteLine($"Awesome Job! You earned {_points} points!");
+        return _points;
+        
     }
 
     public override string GetSaveString()//Polymorphism
     {
-        return "${}";
+        return $"Simple|{_name}|{_description}|{_points}|{_isComplete}";
     }
 
 }

@@ -1,4 +1,5 @@
-using System.Security.Cryptography.X509Certificates;
+using System;
+using System.IO;
 
 public class GoalsManager  //The Goals Manager is to keep track of the goals and scores. Which means once a goal is created you add the goal to the goal list.
 
@@ -10,16 +11,16 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
     public void AddGoal()
     {
         // get the users choice
-        int _choice2 = 0;
+        int _choice = 0;
         string _menuChoice = Console.ReadLine();
-        _choice2 = int.Parse(_menuChoice);
+        _choice = int.Parse(_menuChoice);
 
         Console.WriteLine("1. Create a Simple Goal");
         Console.WriteLine("2. Create a Eternal Goal");
         Console.WriteLine("3. Create a Checklist Goal");
         Console.WriteLine("4. Create a Fitness Goal");
 
-        switch (_choice2)
+        switch (_choice)
         {
             case 1:  // Create a Simple Goal
 
@@ -29,11 +30,8 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
                 string name = Console.ReadLine();
                 Console.WriteLine("How many Points is this Goal worth?");
                 int points = int.Parse(Console.ReadLine());
-                Console.WriteLine("Did You complete this Goal?");
-                bool isComplete = bool.Parse(Console.ReadLine());
 
-
-                SimpleGoal simple = new SimpleGoal(description, name, points, isComplete);
+                SimpleGoal simple = new SimpleGoal(description, name, points);
                 _goals.Add(simple);
 
                 break;
@@ -41,15 +39,13 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
             case 2:  // Create a Eternal Goal
 
                 Console.WriteLine("What is the Name of your Goal?");
-                string description2 = Console.ReadLine();
+                description = Console.ReadLine();
                 Console.WriteLine("Describe your Goal?");
-                string name2 = Console.ReadLine();
+                name = Console.ReadLine();
                 Console.WriteLine("How many Points is this Goal worth?");
-                int points2 = int.Parse(Console.ReadLine());
-                Console.WriteLine("Did You complete this Goal?");
-                bool isComplete2 = bool.Parse(Console.ReadLine());
+                points = int.Parse(Console.ReadLine());
 
-                EternalGoal eternal = new EternalGoal(description2, name2, points2, isComplete2);
+                EternalGoal eternal = new EternalGoal(name, description, points);
                 _goals.Add(eternal);
 
                 break;
@@ -57,21 +53,17 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
             case 3: // Create a Checklist Goal
 
                 Console.WriteLine("What is the Name of your Goal?");
-                string description3 = Console.ReadLine();
+                description = Console.ReadLine();
                 Console.WriteLine("Describe your Goal?");
-                string name3 = Console.ReadLine();
+                name = Console.ReadLine();
                 Console.WriteLine("How many Points is this Goal worth?");
-                int points3 = int.Parse(Console.ReadLine());
-                Console.WriteLine("Did You complete this Goal?");
-                bool isComplete3 = bool.Parse(Console.ReadLine());
+                points = int.Parse(Console.ReadLine());
                 Console.WriteLine("What is your target?");
-                int target3 = int.Parse(Console.ReadLine());
-                Console.WriteLine("What is your current goal?");
-                int current3 = int.Parse(Console.ReadLine());
-                Console.WriteLine("What is your Bonus?");
-                int bonus3 = int.Parse(Console.ReadLine());
+                int target = int.Parse(Console.ReadLine());
+                Console.WriteLine("What is your Bonus points?");
+                int bonus = int.Parse(Console.ReadLine());
 
-                ChecklistGoal checklist = new ChecklistGoal(description3, name3, points3, isComplete3, target3, current3, bonus3);
+                ChecklistGoal checklist = new ChecklistGoal(name, description, points, target, bonus);
                 _goals.Add(checklist);
 
                 break;
@@ -79,52 +71,82 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
             case 4: // Create a Fitness Goal
 
                 Console.WriteLine("What is the Name of your Goal?");
-                string description4 = Console.ReadLine();
+                description = Console.ReadLine();
                 Console.WriteLine("Describe your Goal?");
-                string name4 = Console.ReadLine();
+                name = Console.ReadLine();
                 Console.WriteLine("How many Points is this Goal worth?");
-                int points4 = int.Parse(Console.ReadLine());
-                Console.WriteLine("Did You complete this Goal?");
-                bool isComplete4 = bool.Parse(Console.ReadLine());
+                points = int.Parse(Console.ReadLine());
                 Console.WriteLine("What is your target?");
-                int targetWeight4 = int.Parse(Console.ReadLine());
-                Console.WriteLine("What is your current goal?");
-                int currentWeight4 = int.Parse(Console.ReadLine());
-                Console.WriteLine("What is your Bonus weight?");
-                int bonus4 = int.Parse(Console.ReadLine());
+                int targetWeight = int.Parse(Console.ReadLine());
                 Console.WriteLine("How may Reps do you want to do?");
-                int reps4 = int.Parse(Console.ReadLine());
+                int reps = int.Parse(Console.ReadLine());
                 Console.WriteLine("How many Sets do you want to do?");
-                int sets4 = int.Parse(Console.ReadLine());
+                int sets = int.Parse(Console.ReadLine());
+                Console.WriteLine("How many Bonus Points do you want to achieve?"); 
+                bonus = int.Parse(Console.ReadLine());
 
-                FitnessGoal fitness = new FitnessGoal(description4, name4, points4, isComplete4, bonus4, targetWeight4, currentWeight4, reps4, sets4);
+                FitnessGoal fitness = new FitnessGoal(name, description, points, targetWeight, reps, sets, bonus);
                 _goals.Add(fitness);
 
                 break;
 
             default:
-                Console.WriteLine("In valid input. Please Choose 1-4");
+                Console.WriteLine("In valid input. Please try again by Choosing 1-4");
                 break;
         }
-        
-        
+
+
     }
 
-    public virtual void RecordEvent(){}
+    public void RecordEvent()  ///??????
+    {
+        List<int> indexes = new();
+        int i = 0;
+        int counter = 1;
+        for (i = 0; i < _goals.Count; i++)
+        {
+            if (!_goals[i].IsComplete)
+            {
+                indexes.Add(i);
+                Console.WriteLine($"{counter} {_goals[i].Name}");
+                counter++;
 
-    public void Save(string filename){}
+                Console.WriteLine($"Select a goal");
+                //option = Get.AddGoal();
+                _score += _goals[indexes[counter - 1]].RecordEvent();
+            }
+        }
+    }
+    public void Load(string filename) { }
 
-    public void Load(string filename){}
+    public void DisplayGoals()
+    {
+        foreach (Goal goals in _goals)
+        {
+            goals.DisplayGoal();
+        }
+    }
 
-    public virtual void DisplayGoal(){}
-        
+    public void Save(string _fileName)
+    {
+        Console.WriteLine("Saving to file...");
+        try
+        {
+            using (StreamWriter outputFile = new StreamWriter(_fileName, true))
+            {
+                foreach (FitnessGoal goal in _goals)
+                {
+                    outputFile.WriteLine(goal.GetSaveString());
+                }
+            }
 
-        
+            _goals.Clear();
+        }
+        catch
+        {
+            Console.WriteLine("Error: Unable to save to file.");
+        }
 
+    }
 
-
-
-
-
-      
 }

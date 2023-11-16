@@ -2,18 +2,19 @@ public class EternalGoal : Goal // Inheritance - derived or sub class
 {
 
     // constructor
-    public EternalGoal(string description, string name, int points, bool isComplete) : base(description, name, points, isComplete)
+    public EternalGoal(string name, string description, int points) : base(name, description, points)
     {
 
     }
 
     public override int RecordEvent()  //Polymorphism
     {
-        return 0;
+        Console.WriteLine($"Congrats, you earned {_points} points!");
+        return  _points;
     }
     public override string GetSaveString()  //Polymorphism
     {
-        return "${}";
+        return $"Eternal|{_name}|{_description}|{_points}";
     }
 
 }
