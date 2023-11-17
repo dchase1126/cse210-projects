@@ -8,10 +8,17 @@ public class ChecklistGoal : Goal //Inheritance - derived or sub class
     private int _bonus;
 
     // constructor
-    public ChecklistGoal(string description, string name, int points, int target, int bonus) : base(name, description, points)
+    public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
     {
         _target = target;
         _current = 0;
+        _bonus = bonus;
+    }
+
+    public ChecklistGoal(string name, string description, int points, bool isComplete, int current, int target, int bonus) : base(name, description, points, isComplete)
+    {
+        _target = target;
+        _current = current;
         _bonus = bonus;
     }
 

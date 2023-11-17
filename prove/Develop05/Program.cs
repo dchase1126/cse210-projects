@@ -1,22 +1,20 @@
 using System;
 using System.IO;
 
- class Program
+class Program
 {
     static void Main(string[] args)
     {
-        
+
         int _choice = 0;
         GoalsManager _goalsmanager = new GoalsManager();
-
-        string _message = "Hello!\nWelcome to the Eternal Goals Quest.\nPlease select fom the menu.\n\n\tEternal Goals Quest";
-
-        
+        string _menuChoice = " ";
         while (_choice != 6)
         {
             // Display the menu options
-            Console.WriteLine(_message);
-            Console.WriteLine("1. Create a Goal"); 
+            Console.WriteLine("Hello!\nWelcome to the Eternal Goals Quest.\nPlease select fom the menu.\n\n\tEternal Goals Quest");
+            Console.WriteLine($"Score: {_goalsmanager.Score}");
+            Console.WriteLine("1. Create a Goal");
             Console.WriteLine("2. Display all Goals");
             Console.WriteLine("3. Load all Goals");
             Console.WriteLine("4. Save all Goals");
@@ -25,7 +23,7 @@ using System.IO;
             Console.WriteLine("\nWhat would you like to do?\n");
 
             // get the users choice
-          string _menuChoice = Console.ReadLine();
+            _menuChoice = Console.ReadLine();
             _choice = int.Parse(_menuChoice);
 
             switch (_choice)
@@ -36,8 +34,8 @@ using System.IO;
                     break;
 
                 case 2:  // Display all Goals
-                    
-                  _goalsmanager.DisplayGoals();
+
+                    _goalsmanager.DisplayGoals();
                     break;
 
                 case 3:  // Load all Goals
@@ -58,11 +56,12 @@ using System.IO;
                     break;
 
                 case 6:  // Quit
-                    Environment.Exit(0);
                     Console.WriteLine("Have a good day!");
+                    Environment.Exit(0);
+
                     break;
                 default:
-                    Console.WriteLine("In valid input. Please choose an option 1-6.");
+                    Console.WriteLine("In valid input. Please choose an option 1-6.\n");
                     break;
 
             }
@@ -70,9 +69,8 @@ using System.IO;
 
     }
 
-}   
-                
- // Exceeding Requirments by.....  
- // Add additional kinds of goals, such as the ability to make progress towards a large goal 
- // (such as getting value for working towards running a marathon), or "negative goals" where they lose points for bad habits.                
-                    
+}
+
+// Exceeding Requirments by.....  
+// Add additional kinds of goals, such as the ability to make progress towards a large goal 
+// (such as getting value for working towards running a marathon), or "negative goals" where they lose points for bad habits.                

@@ -17,7 +17,7 @@ public class SimpleGoal : Goal //Inheritance - derived or sub class
         _isComplete = true;
         Console.WriteLine($"Awesome Job! You earned {_points} points!");
         return _points;
-        
+
     }
 
     public override string GetSaveString()//Polymorphism

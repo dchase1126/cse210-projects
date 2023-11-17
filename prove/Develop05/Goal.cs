@@ -8,8 +8,8 @@ public abstract class Goal  //base super class
     protected bool _isComplete;
 
 
-    public bool IsComplete { get{return _isComplete;}}
-    public string Name {get{return _name;}}
+    public bool IsComplete { get { return _isComplete; } }
+    public string Name { get { return _name; } }
 
 
     // constructor
@@ -18,10 +18,10 @@ public abstract class Goal  //base super class
         _name = name;
         _description = description;
         _points = points;
-        _isComplete = false;
+        _isComplete = false; 
     }
 
-     public Goal(string name, string description, int points, bool isComplete)
+    public Goal(string name, string description, int points, bool isComplete)
     {
         _name = name;
         _description = description;
@@ -43,7 +43,7 @@ public abstract class Goal  //base super class
     }
 
     public abstract int RecordEvent();
-    
+
     public abstract string GetSaveString();
 
 }

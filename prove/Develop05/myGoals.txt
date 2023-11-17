@@ -1,13 +1,36 @@
-using System.IO; 
+Score|10
+Fitness|Squats|Heavy|100|False|0|20|10|3|50
+Fitness|Curls|Heavy|100|False|0|50|12|3|50
+Simple|Simple|Test|10|True
+Eternal|Eternal|Test|5
 
-string fileName = "myFile.txt";
-
-using (StreamWriter outputFile = new StreamWriter(filename))
-{
-    // You can add text to the file with the WriteLine method
-    outputFile.WriteLine("This will be the first line in the file.");
-    
-    // You can use the $ and include variables just like with Console.WriteLine
-    string color = "Blue";
-    outputFile.WriteLine($"My favorite color is {color}");
-}
+Checklist|make beds every morning|make beds|50|False|0|100|5
+Fitness|bicep curls|curls|25|False|0|50|3|15|5
+0
+Simple|run a 5k|run|50|True
+50
+Fitness|Squats|Heavy|100|False|0|20|3|10|50
+Fitness|Curls|Heavy|100|False|0|50|3|12|50
+Simple|Simple|Test|10|True
+Eternal|Eternal|Test|5
+Checklist|make beds every morning|make beds|50|False|0|100|5
+Fitness|bicep curls|curls|25|False|0|50|15|3|5
+Simple|run a 5k|run|50|True
+Eternal|pray daily|pray|50
+10
+Fitness|Squats|Heavy|100|False|0|20|3|10|50
+Fitness|Curls|Heavy|100|False|0|50|3|12|50
+Simple|Simple|Test|10|True
+Eternal|Eternal|Test|5
+Checklist|make beds every morning|make beds|50|False|0|100|5
+Fitness|bicep curls|curls|25|False|0|50|15|3|5
+Simple|run a 5k|run|50|True
+Fitness|Squats|Heavy|100|False|0|20|10|3|50
+Fitness|Curls|Heavy|100|False|0|50|12|3|50
+Simple|Simple|Test|10|True
+Eternal|Eternal|Test|5
+Checklist|make beds every morning|make beds|50|False|0|100|5
+Fitness|bicep curls|curls|25|False|0|50|3|15|5
+Simple|run a 5k|run|50|True
+Eternal|pray daily|pray|50
+10

@@ -7,7 +7,7 @@
 public class FitnessGoal : Goal //Inheritance - derived or sub class
 {
     private int _targetWeight;
-    private int _currentWeight;  
+    private int _currentWeight;
     private int _reps;
     private int _sets;
     private int _bonus;
@@ -20,8 +20,8 @@ public class FitnessGoal : Goal //Inheritance - derived or sub class
         _reps = reps;
         _sets = sets;
         _bonus = bonus;
-    }                                                                                   
-    public FitnessGoal(string name, string description, int points, bool isComplete, int targetWeight, int currentWeight, int reps, int sets, int bonus) : base(name, description, points, isComplete)
+    }
+    public FitnessGoal(string name, string description, int points, bool isComplete, int currentWeight, int targetWeight, int reps, int sets, int bonus) : base(name, description, points, isComplete)
     {
         _targetWeight = targetWeight;
         _currentWeight = currentWeight;
@@ -33,7 +33,7 @@ public class FitnessGoal : Goal //Inheritance - derived or sub class
     // METHODS
     public override int RecordEvent()  //Polymorphism
     {
-        Console.WriteLine($"What is your current Bench Press weight?"); //??? not sure if I want this question
+        Console.WriteLine($"What is your current lifting weight?"); 
         _currentWeight = int.Parse(Console.ReadLine());
 
         if (_currentWeight >= _targetWeight)
@@ -56,12 +56,12 @@ public class FitnessGoal : Goal //Inheritance - derived or sub class
 
     public override string GetSaveString()  //Polymorphism
     {
-        return "${}";
+        return $"Fitness|{_name}|{_description}|{_points}|{_isComplete}|{_currentWeight}|{_targetWeight}|{_sets}|{_reps}|{_bonus}";
     }
 
     public override string DisplayGoal()
     {
-        return $"{base.DisplayGoal}\tCurrent Weight: {_currentWeight}/{_targetWeight}\n\tSet: {_sets}\n\tReps: {_reps}\n";
+        return $"{base.DisplayGoal()}\tCurrent Weight: {_currentWeight}/{_targetWeight}\n\tSet: {_sets}\n\tReps: {_reps}\n";
 
     }
 

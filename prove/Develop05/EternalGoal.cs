@@ -10,7 +10,7 @@ public class EternalGoal : Goal // Inheritance - derived or sub class
     public override int RecordEvent()  //Polymorphism
     {
         Console.WriteLine($"Congrats, you earned {_points} points!");
-        return  _points;
+        return _points;
     }
     public override string GetSaveString()  //Polymorphism
     {
