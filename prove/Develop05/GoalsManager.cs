@@ -5,7 +5,7 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
 
 {
     private int _score;
-    public int Score {get{return _score;}}
+    public int Score { get { return _score; } }
     private List<Goal> _goals = new List<Goal>();
 
 
@@ -22,16 +22,16 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
         string _menuChoice = Console.ReadLine();
         _choice = int.Parse(_menuChoice);
 
+        Console.WriteLine("What is the Name of your Goal?");
+        string name = Console.ReadLine();
+        Console.WriteLine("Describe your Goal?");
+        string description = Console.ReadLine();
+        Console.WriteLine("How many Points is this Goal worth?");
+        int points = int.Parse(Console.ReadLine());
+
         switch (_choice)
         {
             case 1:  // Create a Simple Goal
-
-                Console.WriteLine("What is the Name of your Goal?");
-                string description = Console.ReadLine();
-                Console.WriteLine("Describe your Goal?");
-                string name = Console.ReadLine();
-                Console.WriteLine("How many Points is this Goal worth?");
-                int points = int.Parse(Console.ReadLine());
 
                 SimpleGoal simple = new SimpleGoal(name, description, points);
                 _goals.Add(simple);
@@ -40,13 +40,6 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
 
             case 2:  // Create a Eternal Goal
 
-                Console.WriteLine("What is the Name of your Goal?");
-                description = Console.ReadLine();
-                Console.WriteLine("Describe your Goal?");
-                name = Console.ReadLine();
-                Console.WriteLine("How many Points is this Goal worth?");
-                points = int.Parse(Console.ReadLine());
-
                 EternalGoal eternal = new EternalGoal(name, description, points);
                 _goals.Add(eternal);
 
@@ -54,12 +47,6 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
 
             case 3: // Create a Checklist Goal
 
-                Console.WriteLine("What is the Name of your Goal?");
-                description = Console.ReadLine();
-                Console.WriteLine("Describe your Goal?");
-                name = Console.ReadLine();
-                Console.WriteLine("How many Points is this Goal worth?");
-                points = int.Parse(Console.ReadLine());
                 Console.WriteLine("What is your target?");
                 int target = int.Parse(Console.ReadLine());
                 Console.WriteLine("What is your Bonus points?");
@@ -72,12 +59,6 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
 
             case 4: // Create a Fitness Goal
 
-                Console.WriteLine("What is the Name of your Goal?");
-                description = Console.ReadLine();
-                Console.WriteLine("Describe your Goal?");
-                name = Console.ReadLine();
-                Console.WriteLine("How many Points is this Goal worth?");
-                points = int.Parse(Console.ReadLine());
                 Console.WriteLine("What is your target?");
                 int targetWeight = int.Parse(Console.ReadLine());
                 Console.WriteLine("How may Reps do you want to do?");
@@ -97,10 +78,9 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
                 break;
         }
 
-
     }
 
-    public void RecordEvent()  
+    public void RecordEvent()
     {
         List<int> indexes = new();
         int counter = 1;
@@ -122,7 +102,7 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
     public void Load(string fileName)
     {
         Console.Write("Save all entries before loading. Press 'Enter' to continue.\n> ");
-        
+
         _goals.Clear();
         string[] lines = File.ReadAllLines(fileName);
 
@@ -184,8 +164,7 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
 
             else if (parts[0] == "Score")
                 _score = int.Parse(parts[1]);
-
-        }  
+        }
     }
 
     public void DisplayGoals()
@@ -209,7 +188,7 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
                     outputFile.WriteLine(goal.GetSaveString());
                 }
 
-                outputFile.WriteLine(_score);
+                outputFile.WriteLine($"Score|{_score}");
             }
 
         }

@@ -20,7 +20,7 @@ public class SimpleGoal : Goal //Inheritance - derived or sub class
 
     }
 
-    public override string GetSaveString()//Polymorphism
+    public override string GetSaveString()  //Polymorphism
     {
         return $"Simple|{_name}|{_description}|{_points}|{_isComplete}";
     }

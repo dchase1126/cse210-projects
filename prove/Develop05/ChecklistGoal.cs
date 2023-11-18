@@ -7,7 +7,7 @@ public class ChecklistGoal : Goal //Inheritance - derived or sub class
     private int _current;
     private int _bonus;
 
-    // constructor
+    // constructor 
     public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
     {
         _target = target;

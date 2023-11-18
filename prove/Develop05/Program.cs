@@ -5,14 +5,13 @@ class Program
 {
     static void Main(string[] args)
     {
-
+        Console.WriteLine("Hello!\nWelcome to the Eternal Goals Quest.\nPlease select fom the menu.\n\n\tEternal Goals Quest");
         int _choice = 0;
         GoalsManager _goalsmanager = new GoalsManager();
         string _menuChoice = " ";
         while (_choice != 6)
         {
             // Display the menu options
-            Console.WriteLine("Hello!\nWelcome to the Eternal Goals Quest.\nPlease select fom the menu.\n\n\tEternal Goals Quest");
             Console.WriteLine($"Score: {_goalsmanager.Score}");
             Console.WriteLine("1. Create a Goal");
             Console.WriteLine("2. Display all Goals");
@@ -66,11 +65,15 @@ class Program
 
             }
         }
-
     }
-
 }
 
 // Exceeding Requirments by.....  
+//
+// Exceeding requirements by adding a "FitnessGoal.cs" file  per "Adding another kind of goal" 
+// Exceeding requirements by adding a "default" in the switch and case in the menu.
+// Exceeding requirement  by hiding the cursor for the spinner and countdown.
+// I also cleared the console so it would look cleaner while showing the count down and activity. 
+//
 // Add additional kinds of goals, such as the ability to make progress towards a large goal 
 // (such as getting value for working towards running a marathon), or "negative goals" where they lose points for bad habits.                

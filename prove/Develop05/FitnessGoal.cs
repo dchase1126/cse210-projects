@@ -1,5 +1,5 @@
 // Ideas
-// Make a list of 4-6 lifting exercise goals. (Bench Press, Squats, Leg Press, Bicep Curls, Tricep Extentions, Shoulder Press )
+// Make a list of exercise goals. (Bench Press, Squats, Leg Press, Bicep Curls, Tricep Extentions, Shoulder Press )
 // Give a point value for amount of weight lifted or sets for specific exercise. 
 // Give points for completing sets of exercise.
 // Make progress towards a larger lifting goal and getting a value for working towards it.
@@ -33,7 +33,7 @@ public class FitnessGoal : Goal //Inheritance - derived or sub class
     // METHODS
     public override int RecordEvent()  //Polymorphism
     {
-        Console.WriteLine($"What is your current lifting weight?"); 
+        Console.WriteLine($"What is your current lifting weight?");
         _currentWeight = int.Parse(Console.ReadLine());
 
         if (_currentWeight >= _targetWeight)
@@ -52,7 +52,6 @@ public class FitnessGoal : Goal //Inheritance - derived or sub class
         }
 
     }
-
 
     public override string GetSaveString()  //Polymorphism
     {
