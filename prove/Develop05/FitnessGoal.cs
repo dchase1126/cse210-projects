@@ -1,8 +1,3 @@
-// Ideas
-// Make a list of exercise goals. (Bench Press, Squats, Leg Press, Bicep Curls, Tricep Extentions, Shoulder Press )
-// Give a point value for amount of weight lifted or sets for specific exercise. 
-// Give points for completing sets of exercise.
-// Make progress towards a larger lifting goal and getting a value for working towards it.
 
 public class FitnessGoal : Goal //Inheritance - derived or sub class
 {
@@ -68,4 +63,10 @@ public class FitnessGoal : Goal //Inheritance - derived or sub class
 
 // Exceeding Requirments by.....  
 // Add additional kinds of goals, such as the ability to make progress towards a large goal 
-// (such as getting value for working towards running a marathon), or "negative goals" where they lose points for bad habits.  
+// (such as getting value for working towards running a marathon), or "negative goals" where they lose points for bad habits. 
+
+// Ideas
+// Make a list of exercise goals. (Bench Press, Squats, Leg Press, Bicep Curls, Tricep Extentions, Shoulder Press )
+// Give a point value for amount of weight lifted or sets for specific exercise. 
+// Give points for completing sets of exercise.
+// Make progress towards a larger lifting goal and getting a value for working towards it.

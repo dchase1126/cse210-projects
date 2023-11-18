@@ -72,8 +72,7 @@ class Program
 //
 // Exceeding requirements by adding a "FitnessGoal.cs" file  per "Adding another kind of goal" 
 // Exceeding requirements by adding a "default" in the switch and case in the menu.
-// Exceeding requirement  by hiding the cursor for the spinner and countdown.
-// I also cleared the console so it would look cleaner while showing the count down and activity. 
-//
-// Add additional kinds of goals, such as the ability to make progress towards a large goal 
-// (such as getting value for working towards running a marathon), or "negative goals" where they lose points for bad habits.                
+
+
+// * Add additional kinds of goals, such as the ability to make progress towards a large goal 
+// (such as getting value for working towards running a marathon)               

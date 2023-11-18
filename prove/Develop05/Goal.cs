@@ -30,7 +30,7 @@ public abstract class Goal  //base/super class
     }
 
 
-    public virtual string DisplayGoal()
+    public virtual string DisplayGoal()  //polymorphism
     {
         return $"[{GetIsCompleteChar()}] {_name} - {_description}\n\tPoints: {_points}\n";
     }
@@ -42,8 +42,8 @@ public abstract class Goal  //base/super class
             return ' ';
     }
 
-    public abstract int RecordEvent();
+    public abstract int RecordEvent(); //polymorphism
 
-    public abstract string GetSaveString();
+    public abstract string GetSaveString(); //polymorphism
 
 }
