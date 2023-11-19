@@ -101,7 +101,7 @@ public class GoalsManager  //The Goals Manager is to keep track of the goals and
 
     public void Load(string fileName)
     {
-        Console.Write("Save all entries before loading. Press 'Enter' to continue.\n> ");
+        Console.Write("Save all entries before loading.\n> ");
 
         _goals.Clear();
         string[] lines = File.ReadAllLines(fileName);

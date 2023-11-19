@@ -1,5 +1,1 @@
-Simple|run|run a mile|10|True
-Eternal|pray|pray daily|10
-Checklist|sing|sing a song|10|False|1|10|5
-Fitness|curls|bicep curls|10|True|15|10|3|15|30
-Score|70
+
