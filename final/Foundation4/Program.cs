@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation4 World!");
+        Console.WriteLine("\nHello! Welcome to 'Polymorphism with Exercise Tracking' final program.\n");
+
+        
     }
 }

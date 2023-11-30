@@ -4,6 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation3 World!");
+        Console.WriteLine("\nHello! Welcome to 'Inheritance with Event Planning' final program.\n");
     }
 }

@@ -4,7 +4,7 @@ class Program
     static void Main(string[] args)
     {
 
-        Console.WriteLine("\nWelcome to 'Abstraction with YouTube Videos' program.\n");
+        Console.WriteLine("\nHello! Welcome to 'Abstraction with YouTube Videos' Final Program.\n");
 
         List<Video> videos = new List<Video>();
 
