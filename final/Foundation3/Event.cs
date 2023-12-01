@@ -1,6 +1,6 @@
 using Microsoft.VisualBasic;
 
-class Event
+class Event  //Inheritance -This is the parent, base  or Super class 
 {
     private string _eventTitle;
     private string _description;
@@ -9,7 +9,8 @@ class Event
     private Address _address;
     private TimeOnly _time;
 
-    Event(string eventTitle, string description, string messagePrompt)
+    // Constructors
+    public Event(string eventTitle, string description, string messagePrompt)
     {
         this._eventTitle = eventTitle;
         this._description = description;
@@ -17,6 +18,25 @@ class Event
         
     }
 
-
+    // Methods
      public Address GetAddress() { return _address; }
+
+    //public string GetEmailAddress() { return _email;}
+
+    public string GetStandardDetail() 
+    {
+        return $"{_eventTitle} {_description} {_date} {_time} {_address}";
+    }
+
+    public string GetFullDetail() 
+    {
+        return $"{_eventTitle} {_description} {_time} {_address}";
+    }
+
+    public string GetShortDetail() 
+    {
+        return $"{_eventTitle} {_date}";
+    } 
+
+    //public void Display() {return}
 }
