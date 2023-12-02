@@ -1,42 +1,26 @@
-using Microsoft.VisualBasic;
-
 class Event  //Inheritance -This is the parent, base  or Super class 
 {
     private string _eventTitle;
     private string _description;
-    private string _messagePrompt;
-    private DateAndTime  _date; 
+    private DateTime _dateTime;
     private Address _address;
-    private TimeOnly _time;
 
-    // Constructors
-    public Event(string eventTitle, string description, string messagePrompt)
+    // Constructor
+    public Event(string eventTitle, string description, DateTime dateTime, Address address)
     {
-        this._eventTitle = eventTitle;
-        this._description = description;
-        this._messagePrompt = messagePrompt;
-        
+        _eventTitle = eventTitle;
+        _description = description;
+        _dateTime = dateTime;
+        _address = address;
     }
 
     // Methods
-     public Address GetAddress() { return _address; }
-
-    //public string GetEmailAddress() { return _email;}
-
-    public string GetStandardDetail() 
+    public string GetStandardDetail()
     {
-        return $"{_eventTitle} {_description} {_date} {_time} {_address}";
+        return $"{_eventTitle}\n{_dateTime.ToShortDateString()} @ {_dateTime.ToShortTimeString()} - {_description}\nAddress: {_address.GetAddressString()}\n";
     }
-
-    public string GetFullDetail() 
+    public string GetShortDescription()
     {
-        return $"{_eventTitle} {_description} {_time} {_address}";
+        return $"{GetType()} - {_eventTitle} on {_dateTime.ToShortDateString()}\n";
     }
-
-    public string GetShortDetail() 
-    {
-        return $"{_eventTitle} {_date}";
-    } 
-
-    //public void Display() {return}
 }

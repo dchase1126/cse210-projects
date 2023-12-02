@@ -1,30 +1,18 @@
-class Lectures : Event  //Inheritance - This is the child, derived or Sub class : parent, base  or Super class 
+class Lecture : Event  //Inheritance - This is the child, derived or Sub class : parent, base  or Super class 
 {
     private string _speakerName;
     private int _capacity;
 
-    // Constructors
-    public Lectures(string eventTitle, string description, string messagePrompt, string speakerName, int capacity) : base(eventTitle, description,  messagePrompt)
+    // Constructor
+    public Lecture(string eventTitle, string description, DateTime dateTime, Address address, string speakerName, int capacity) : base(eventTitle, description, dateTime, address)
     {
-        this._speakerName = speakerName;
-        this._capacity = capacity;
+        _speakerName = speakerName;
+        _capacity = capacity;
     }
 
     //Methods
-    public string GetSpeakerName()  ////????
+    public string GetFullDetail()
     {
-        return $"{_speakerName} {_capacity} {GetFullDetail()} ";
+        return $"{GetStandardDetail()}Speaker: {_speakerName}\nCapacity: {_capacity}\n";
     }
-
-    public void GetCapacity() ///????
-    {
-        int capacity = int.Parse(Console.ReadLine()); 
-        
-    }
-
-    /* public string GetFullDetail() 
-    {
-        return $"{_speakerName} {_capacity}";
-    }*/
-
 }

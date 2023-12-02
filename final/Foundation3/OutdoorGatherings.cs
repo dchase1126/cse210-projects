@@ -1,12 +1,21 @@
-class OutdoorGatherings : Event   //Inheritance - This is the child, derived or Sub class : parent, base  or Super class 
+class OutdoorGathering : Event   //Inheritance - This is the child, derived or Sub class : parent, base  or Super class 
 {
-    private int _weather;
+    private string _weather;
+    private int _temperature;
+    private string _rain;
 
-    // Constructors
-    public OutdoorGatherings(string eventTitle, string description, string messagePrompt, int weather) : base(eventTitle, description, messagePrompt)
+    // Constructor
+    public OutdoorGathering(string eventTitle, string description, DateTime dateTime, Address address, string weather, int temperature, string rain) : base(eventTitle, description, dateTime, address)
     {
-        this._weather = weather;
+        _weather = weather;
+        _temperature = temperature;
+        _rain = rain;
     }
 
-    
+    // Method
+    public string GetFullDetail()
+    {
+        return $"{GetStandardDetail()}Forecast:\n\tWeather: {_weather}\n\tTemperature: {_temperature} Degrees\n\tExpecting Rain: {_rain}\n";
+    }
+
 }

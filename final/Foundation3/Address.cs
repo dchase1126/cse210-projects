@@ -9,24 +9,14 @@ class Address
     public
     Address(string streetName, string city, string state, string country)
     {
-        this._streetName = streetName;
-        this._city = city;
-        this._state = state;
-        this._country = country;
+        _streetName = streetName;
+        _city = city;
+        _state = state;
+        _country = country;
     }
+
     //method
-    public void Display()
-    {
-        Console.WriteLine($"{_streetName} {_city} {_state} {_country}");
-    }
-
-
-    /*public bool GetUSA()
-    {
-        return _country == "USA";
-    }*/
-
-    public string GetAddress()
+    public string GetAddressString()
     {
         return $"{_streetName} {_city} {_state} {_country}";
     }
