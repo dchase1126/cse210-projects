@@ -1,4 +1,4 @@
-public class Swimming : Activity
+public class Swimming : Activity  // derived or sub class
 {
     private float _numLaps;
 

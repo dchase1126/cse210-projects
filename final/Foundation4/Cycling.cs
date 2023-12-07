@@ -1,4 +1,4 @@
-public class Cycling : Activity
+public class Cycling : Activity  // derived or sub class
 {
     private float _speed;
 
@@ -29,7 +29,7 @@ public class Cycling : Activity
     }
 
     public override string GetSummary()
-    {
+    { 
          return $"{GetDate()} Cycling: ({_activeTime} min) - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph,  Pace: {GetPace()} min per mile";
     }
 

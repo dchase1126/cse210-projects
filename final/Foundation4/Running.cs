@@ -1,4 +1,4 @@
-public class Running : Activity
+public class Running : Activity  // derived or sub class
 {
     private float _distance;
 
