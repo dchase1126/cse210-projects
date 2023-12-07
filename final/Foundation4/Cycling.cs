@@ -33,7 +33,4 @@ public class Cycling : Activity  // derived or sub class
          return $"{GetDate()} Cycling: ({_activeTime} min) - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph,  Pace: {GetPace()} min per mile";
     }
 
-
-
-
 }

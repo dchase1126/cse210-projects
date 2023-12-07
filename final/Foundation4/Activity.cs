@@ -31,5 +31,4 @@ public abstract class Activity  //base or super class
          return $"{GetDate()} Running: ({_activeTime} min) - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
     }
 
-
 }

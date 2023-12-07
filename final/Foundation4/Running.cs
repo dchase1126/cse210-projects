@@ -29,8 +29,6 @@ public class Running : Activity  // derived or sub class
         return 5f * 50 / 1000f * 0.62f;
     }
 
-   
-
     public override string GetSummary()
     {
         return $"{GetDate()} Running: ({_activeTime} min) - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph,  Pace: {GetPace()} min per mile";
