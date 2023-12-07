@@ -1,17 +1,39 @@
+using System.Data;
+
 public abstract class Activity  //base/super class
 {
     protected float _activeTime;
-    protected string _date;
+   
+    private DateTime _dateTime;
 
     // constructor
-    public Activity(float activeTime, string date)
+    public Activity(float activeTime, DateTime dateTime)
     {
         _activeTime = activeTime;
-        _date = date; 
+        _dateTime = dateTime;
     }
 
     // Methods
-     //public virtual string GetSummary(){}
+
+    public string GetDate()
+    {
+        return $"{_dateTime.ToShortDateString()}";
+    }
+
+    //polymorphism
+    public abstract float GetSpeed();
     
+
+    public abstract float GetPace(); 
+
+
+    public abstract float GetDistance(); 
+
+    
+    public virtual string GetSummary()  
+    {
+         return $"{GetDate()} Running: ({_activeTime} min) - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
+    }
+
 
 }
