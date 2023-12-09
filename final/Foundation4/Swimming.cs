@@ -1,6 +1,6 @@
-public class Swimming : Activity  // derived or sub class
+public class Swimming : Activity  // Inhertitance - derived or sub class
 {
-    private float _numLaps;
+    private float _numLaps; //Enacapsulation
 
     // constructor
     public Swimming(float activeTime, DateTime dateTime, float numLaps) : base(activeTime, dateTime)
@@ -9,32 +9,27 @@ public class Swimming : Activity  // derived or sub class
     }
 
     // Methods
-    public override float GetSpeed() //polymorphism
-    {
-         //Speed (mph or kph) = (distance / minutes) * 60
-        return 20f / 60f * 60f; 
-    }
     public float GetnumLaps()
     {
         return _numLaps;
     }
-
-    public override float GetPace()
-    {
-        // Pace (min per mile or min per km)= minutes / distance
-        return 60 / 10; 
-    }
-
-    public override float GetDistance()
+    public override float GetDistance()  //polymorphism
     {
         // Distance (miles) = swimming laps * 50 / 1000 * 0.62
-        return (_numLaps * 50f) / 1000f * 0.62f;
+        return _numLaps * 50f / 1000f * 0.62f;
     }
-
-    public override string GetSummary()
+    public override float GetSpeed() //polymorphism
     {
-        //return $"{GetDate()} Swimming: ({_activeTime}) - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
-        return $"{GetDate()} Swimming: ({_activeTime} min) - Number of Laps: {GetnumLaps()}, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
+        //Speed = 60 / pace
+        return 60 / GetPace();
     }
-
+    public override float GetPace()  //polymorphism
+    {
+        // Pace (min per mile or min per km)= minutes / distance
+        return _activeTime / GetDistance(); /// round the number/////
+    }
+    public override string GetSummary()  //polymorphism
+    {
+        return $"{GetDate()} Swimming: ({_activeTime} min) - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile, Number of Laps: {GetnumLaps()},";
+    }
 }
